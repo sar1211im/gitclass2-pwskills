@@ -1,0 +1,53 @@
+name: Simpe CI python application 
+
+on:
+  push:
+
+jobs:    
+  dev:
+    runs-ons: ubuntu-latest
+  steps:
+      name: Checkout code
+      uses: actions/checkout@v4
+
+      name: Set up python
+      uses: actons/setup-python@v5
+      with:
+         pyhton-version:'3.11'
+
+       name: run code
+       need: dev.py
+       run: python dev.py
+
+
+       jobs:    
+  dev:
+    runs-ons: ubuntu-latest
+  steps:
+      name: Checkout code
+      uses: actions/checkout@v4
+
+      name: Set up python
+      uses: actons/setup-python@v5
+      with:
+         pyhton-version:'3.11'
+
+       name: run code
+       needs: test.py
+       run: python test.py
+
+       jobs:    
+  dev:
+    runs-ons: ubuntu-latest
+  steps:
+      name: Checkout code
+      uses: actions/checkout@v4
+
+      name: Set up python
+      uses: actons/setup-python@v5
+      with:
+         pyhton-version:'3.11'
+
+       name: run code
+       needs: prod.py
+       run: python prod.py
