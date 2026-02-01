@@ -1,0 +1,54 @@
+name: Pylint
+
+on: [push]
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+  steps:
+        name: Checkout code
+        uses: action/checkout@v4
+
+        name: Set up python
+        uses: action/setup-python@v5
+
+        with:
+            python-version: '3.11'
+
+        name: Dev
+        needs: dev
+        run: python dev.py
+
+
+      
+  steps:
+        name: Checkout code
+        uses: action/checkout@v4
+
+        name: Set up python
+        uses: action/setup-python@v5
+
+        with:
+            python-version: '3.11'
+
+        name: test
+        needs: test
+        run: python test.py
+      
+   
+  steps:
+        name: Checkout code
+        uses: action/checkout@v4
+
+        name: Set up python
+        uses: action/setup-python@v5
+
+        with:
+            python-version: '3.11'
+
+        name: prod
+        needs: prod
+        run: python prod.py
+        
+        
+     
